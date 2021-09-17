@@ -16,6 +16,7 @@ namespace FormFront.Models
         public string Surname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public string Country { get; set; }
         public string FavouriteColour { get; set; }
         public  DateTime Birthday { get; set; }
