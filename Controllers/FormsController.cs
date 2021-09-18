@@ -25,6 +25,19 @@ namespace FormFront.Controllers
             return View(await _context.Form.ToListAsync());
         }
 
+        // GET: Forms/Search
+        public async Task<IActionResult> Search()
+        {
+            return View();
+        }
+
+        // POST: Forms/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index", 
+                await _context.Form.Where(f => f.Comments.Contains(SearchPhrase)).ToListAsync());
+        }
+
         // GET: Forms/Details/5
         public async Task<IActionResult> Details(int? id)
         {
