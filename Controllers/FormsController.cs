@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FormFront.Data;
 using FormFront.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FormFront.Controllers
 {
@@ -57,6 +58,7 @@ namespace FormFront.Controllers
         }
 
         // GET: Forms/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -67,6 +69,7 @@ namespace FormFront.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name,Surname,Email,Password,ConfirmPassword,Country,FavouriteColour,Birthday,PhoneNumber,Comments")] Form form)
         {
             if (ModelState.IsValid)
@@ -79,6 +82,7 @@ namespace FormFront.Controllers
         }
 
         // GET: Forms/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -99,6 +103,7 @@ namespace FormFront.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Surname,Email,Password,ConfirmPassword,Country,FavouriteColour,Birthday,PhoneNumber,Comments")] Form form)
         {
             if (id != form.Id)
@@ -130,6 +135,7 @@ namespace FormFront.Controllers
         }
 
         // GET: Forms/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -150,6 +156,7 @@ namespace FormFront.Controllers
         // POST: Forms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var form = await _context.Form.FindAsync(id);
