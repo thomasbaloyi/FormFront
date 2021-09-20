@@ -29,18 +29,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                @Html.Password("Password")
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
 
                 <label asp-for="ConfirmPassword" class="control-label"></label> 
-                <input asp-for="ConfirmPassword" class="form-control" /> 
+                @Html.Password("ConfirmPassword")
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span> 
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
+                @Html.DropDownListFor(model => model.Country, new SelectList(Enum.GetValues(typeof(Country))), "Select Country")
                 <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
