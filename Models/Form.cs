@@ -23,6 +23,7 @@ namespace FormFront.Models
         [Required]
         public string ConfirmPassword { get; set; }
         public string Country { get; set; }
+
         public string FavouriteColour { get; set; }
 
         [DataType(DataType.Date)]
@@ -32,5 +33,20 @@ namespace FormFront.Models
         public int PhoneNumber { get; set; }
 
         public string Comments { get; set; }
+    }
+
+    public enum Country
+    {
+        [Display(Name ="South Africa")]
+        SouthAfrica,
+        Zimbabwe, 
+        Malawi,
+        Zambia, 
+        Egypt,
+        Mozambique,
+        Ethiopia, 
+        Ghana, 
+        Nigeria,
+        Kenya
     }
 }
