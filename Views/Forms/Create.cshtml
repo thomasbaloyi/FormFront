@@ -44,8 +44,14 @@
                 <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <br />
                 <label asp-for="FavouriteColour" class="control-label"></label>
-                <input asp-for="FavouriteColour" class="form-control" />
+                <br />
+                    Red: @Html.RadioButton("FavouriteColour", "Red")
+                    Blue: @Html.RadioButton("FavouriteColour", "Blue")
+                    Green: @Html.RadioButton("FavouriteColour", "Green")
+                <br />
+                <br />
                 <span asp-validation-for="FavouriteColour" class="text-danger"></span>
             </div>
             <div class="form-group">
