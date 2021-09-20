@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using FormFront.Data;
 using FormFront.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
+using System.Net.Mail;
+using System.Net;
 
 namespace FormFront.Controllers
 {
@@ -74,8 +77,25 @@ namespace FormFront.Controllers
         {
             if (ModelState.IsValid)
             {
+              /*  string subject = "New Form Created";
+                string body = "Hi \n \nPlease note that a new form was created here: https://localhost:44322/Forms/Details/" + form.Id;
+
+                var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json");
+                var config = builder.Build();
+
+                var smtpClient = new SmtpClient(config["Smtp:Host"])
+                {
+                    Port = int.Parse(config["Smtp:Port"]),
+                    Credentials = new NetworkCredential(config["Smtp:Username"], config["Smtp:Password"]),
+                    EnableSsl = true,
+                };
+            
+                smtpClient.Send(config["Smtp:Host"], config["Smtp:Username"], subject, body); */
+
                 _context.Add(form);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(form);
