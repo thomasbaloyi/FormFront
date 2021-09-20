@@ -28,7 +28,7 @@ namespace FormFront.Models
         [DataType(DataType.Date)]
         public  DateTime Birthday { get; set; }
 
-     //   [Phone]
+     //   [Phone] String would have been a better variable
         public int PhoneNumber { get; set; }
 
         public string Comments { get; set; }
