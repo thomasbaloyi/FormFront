@@ -8,7 +8,7 @@
 
 <h4>Form</h4>
 <hr />
-<div class="row">
+<div class="row" >
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,58 +17,91 @@
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Surname" class="control-label"></label>
                 <input asp-for="Surname" class="form-control" />
                 <span asp-validation-for="Surname" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                @Html.Password("Password")
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label for="Password" class="form-label mt-4"> Password</label>
+                <input type="password" class="form-control" id="Password" placeholder="Password">
             </div>
             <div class="form-group">
+                <label for="ConfirmPassword" class="form-label mt-4"> Confirm Password</label>
+                <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+            </div>
 
-                <label asp-for="ConfirmPassword" class="control-label"></label> 
-                @Html.Password("ConfirmPassword")
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span> 
-            </div>
+
             <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Country, new SelectList(Enum.GetValues(typeof(Country))), "Select Country")
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <label for="Country" class="form-label mt-4"> Country </label>
+                <select class="form-select" id="Country">
+                    <option> South Africa</option>
+                    <option> Lesotho </option>
+                    <option> Botswana </option>
+                    <option> Namibia </option>
+                    <option> Malawi </option>
+                    <option> Mozambique </option>
+                    <option> Zambia </option>
+                    <option> Zimbabwe </option>
+                    <option> Nigeria </option>
+                    <option> Kenya </option>
+                </select>
             </div>
+            <br />
+
             <div class="form-group">
-                <br />
                 <label asp-for="FavouriteColour" class="control-label"></label>
-                <br />
-                    Red: @Html.RadioButton("FavouriteColour", "Red")
-                    Blue: @Html.RadioButton("FavouriteColour", "Blue")
-                    Green: @Html.RadioButton("FavouriteColour", "Green")
-                <br />
-                <br />
-                <span asp-validation-for="FavouriteColour" class="text-danger"></span>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="FavouriteColour" id="Red" value="Red" checked="">
+                        Red
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="FavouriteColour" id="Blue" value="Blue" checked="">
+                        Blue
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="FavouriteColour" id="Green" value="Green" checked="">
+                        Green
+                    </label>
+                </div>
             </div>
+            <br />
+
             <div class="form-group">
                 <label asp-for="Birthday" class="control-label"></label>
                 <input asp-for="Birthday" class="form-control" />
                 <span asp-validation-for="Birthday" class="text-danger"></span>
             </div>
+            <br />
+
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
+            <br />
+
             <div class="form-group">
                 <label asp-for="Comments" class="control-label"></label>
                 <input asp-for="Comments" class="form-control" />
                 <span asp-validation-for="Comments" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

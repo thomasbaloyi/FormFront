@@ -20,16 +20,19 @@ namespace FormFront.Models
         [Required]
         public string Password { get; set; }
 
+        [Display(Name = "Confirm Password")]
         [Required]
         public string ConfirmPassword { get; set; }
         public string Country { get; set; }
 
+        [Display(Name = "Favourite Colour")]
         public string FavouriteColour { get; set; }
 
         [DataType(DataType.Date)]
         public  DateTime Birthday { get; set; }
 
      //   [Phone] String would have been a better variable
+        [Display(Name="Phone Number")]
         public int PhoneNumber { get; set; }
 
         public string Comments { get; set; }
