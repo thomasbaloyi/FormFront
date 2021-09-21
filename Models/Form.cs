@@ -37,19 +37,4 @@ namespace FormFront.Models
 
         public string Comments { get; set; }
     }
-
-    public enum Country
-    {
-        [Display(Name ="South Africa")]
-        SouthAfrica,
-        Zimbabwe, 
-        Malawi,
-        Zambia, 
-        Egypt,
-        Mozambique,
-        Ethiopia, 
-        Ghana, 
-        Nigeria,
-        Kenya
-    }
 }
