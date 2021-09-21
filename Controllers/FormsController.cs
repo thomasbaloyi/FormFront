@@ -11,12 +11,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.AspNetCore.Hosting;
+using FormFront.Helper;
 
 namespace FormFront.Controllers
 {
     public class FormsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private IConfiguration configuration;
+        private IWebHostEnvironment webHostEnvironment;
 
         public FormsController(ApplicationDbContext context)
         {
@@ -68,8 +72,6 @@ namespace FormFront.Controllers
         }
 
         // POST: Forms/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -77,25 +79,8 @@ namespace FormFront.Controllers
         {
             if (ModelState.IsValid)
             {
-              /*  string subject = "New Form Created";
-                string body = "Hi \n \nPlease note that a new form was created here: https://localhost:44322/Forms/Details/" + form.Id;
-
-                var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json");
-                var config = builder.Build();
-
-                var smtpClient = new SmtpClient(config["Smtp:Host"])
-                {
-                    Port = int.Parse(config["Smtp:Port"]),
-                    Credentials = new NetworkCredential(config["Smtp:Username"], config["Smtp:Password"]),
-                    EnableSsl = true,
-                };
-            
-                smtpClient.Send(config["Smtp:Host"], config["Smtp:Username"], subject, body); */
-
                 _context.Add(form);
                 await _context.SaveChangesAsync();
-
                 return RedirectToAction(nameof(Index));
             }
             return View(form);
@@ -119,8 +104,6 @@ namespace FormFront.Controllers
         }
 
         // POST: Forms/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]

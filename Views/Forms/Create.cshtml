@@ -15,32 +15,34 @@
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Name)
             </div>
             <br />
             <div class="form-group">
                 <label asp-for="Surname" class="control-label"></label>
                 <input asp-for="Surname" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Surname)
             </div>
             <br />
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Email)
             </div>
             <div class="form-group">
-                <label for="Password" class="form-label mt-4"> Password</label>
-                <input type="password" class="form-control" id="Password" placeholder="Password">
+                <label asp-for="Password" class="form-label mt-4"> Password</label>
+                <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Password">
+                @Html.ValidationMessageFor(model => model.Password)
             </div>
             <div class="form-group">
-                <label for="ConfirmPassword" class="form-label mt-4"> Confirm Password</label>
-                <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+                <label asp-for="ConfirmPassword" class="form-label mt-4"> Confirm Password</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+                @Html.ValidationMessageFor(model => model.ConfirmPassword)
             </div>
 
 
             <div class="form-group">
-                <label for="Country" class="form-label mt-4"> Country </label>
+                <label asp-for="Country" class="form-label mt-4"> Country </label>
                 <select class="form-select" id="Country">
                     <option> South Africa</option>
                     <option> Lesotho </option>
@@ -85,14 +87,14 @@
             <div class="form-group">
                 <label asp-for="Birthday" class="control-label"></label>
                 <input asp-for="Birthday" class="form-control" />
-                <span asp-validation-for="Birthday" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.Birthday)
             </div>
             <br />
 
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
                 <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                @Html.ValidationMessageFor(model => model.PhoneNumber)
             </div>
             <br />
 
@@ -109,6 +111,9 @@
     </div>
 </div>
 
+<style>
+    .va
+</style>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

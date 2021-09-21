@@ -22,7 +22,9 @@ namespace FormFront.Models
 
         [Display(Name = "Confirm Password")]
         [Required]
+        [Compare(nameof(Password), ErrorMessage = "Passwords don't match.")]
         public string ConfirmPassword { get; set; }
+
         public string Country { get; set; }
 
         [Display(Name = "Favourite Colour")]
