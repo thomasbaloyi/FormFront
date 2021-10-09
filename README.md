@@ -25,3 +25,8 @@ The application is still under development, some tasks to be implemented:
 
 ## Credit
 I used a Boostrap 5 theme from https://github.com/thomaspark/bootswatch.
+
+## Snapshots
+<p class="aligncenter">
+  <img src="screenshots/three.JPG" width="750">
+</p>
