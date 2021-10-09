@@ -8,6 +8,7 @@ A simple CRUD web application that collects information from users using forms. 
 2. Running
 3. Notes
 4. Credit
+5. Snapshots
 
 ## Installation
 1. Download the repository.
